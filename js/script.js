@@ -1,106 +1,44 @@
-"use strict";
+/* Задание на урок:
 
-// (function () {
-//     'use strict';
-//     // this function is strict...
-//  }());
- 
-//  (function () {
-//     // but this function is sloppy...
-//  }());
+1) Создать переменную numberOfFilms и в неё поместить ответ от пользователя на вопрос:
+'Сколько фильмов вы уже посмотрели?'
 
-/*jshint strict:false */
- 
-// let number = 5;
-// const leftBorderWidth = 1;
+2) Создать объект personalMovieDB и в него поместить такие свойства:
+    - count - сюда передается ответ на первый вопрос
+    - movies - в это свойство поместить пустой объект
+    - actors - тоже поместить пустой объект
+    - genres - сюда поместить пустой массив
+    - privat - в это свойство поместить boolean(логическое) значение false
 
-// number = 10;
-// console.log(number);
+3) Задайте пользователю по два раза вопросы:
+    - 'Один из последних просмотренных фильмов?'
+    - 'На сколько оцените его?'
+Ответы стоит поместить в отдельные переменные
+Записать ответы в объект movies в формате: 
+    movies: {
+        'logan': '8.1'
+    }
 
-// const obj = {
-//     a: 50
-// }
+Проверить, чтобы все работало без ошибок в консоли */
 
-// obj.a = 10;
+'use strict';
 
-// console.log(obj);
+let numberOfFilms = +prompt('How many films have you watched so far?', '');
 
-// console.log(name);
-// var name = 'Kir';
+const personalMovieDB = {
+      count: numberOfFilms,
+      movies: {},
+      actors: {},
+      genres: [],
+      private: false
+};
 
-// {
-//     let result = 50;
-// }
+let lastWatchedFilm = prompt('One of the last movies you watched?', '');
+let youRatings = +prompt('How much would you rate it?', '');
+let lastWatchedFilm2 = prompt('One of the last movies you watched?', '');
+let youRatings2 = +prompt('How much would you rate it?', '');
 
-// console.log(result);
+personalMovieDB.movies[lastWatchedFilm] = youRatings;
+personalMovieDB.movies[lastWatchedFilm2] = youRatings2;
 
-
-// 
-
-// const result = confirm('Are you here?');
-// console.log(result);
-
-// const answer = prompt('18?', '18'); // +prompt // number
-// console.log(typeof(answer));  // string
-
-// const answers = [];
-
-// answers[0] = prompt('You name?', '');
-// answers[1] = prompt('You surname?', '');
-// answers[2] = prompt('You age?', '');
-
-// document.write(answers);
-
-// console.log(typeof(answers));
-// console.log(typeof(null));  // object but its wrong
-
-// let name = prompt('you  name?', '');
-
-// alert(`Ypu name is ${name}`); 
-
-const category = 'toys';
-
-console.log('https://someurl.com/' + category + '/' + '5');  // ES5
-console.log(`https://someurl.com/${category}/5`);  //ES6
-
-// const user = 'Kir';
-
-// alert(`Hello, ${user}`);
-
-console.log('arr' + 'object'); // строка
-console.log('4' + 5); // строка
-console.log(4 + +'3'); // число
-
-let incr = 10,
-    decr = 10;
-
-// incr++;
-// decr--;
-// ++incr;
-// --decr;
-
-// console.log(incr++); // 10
-// console.log(decr--); // 10
-
-console.log(++incr); // 11
-console.log(--decr);// 9
-
-console.log(5%2);
-
-console.log(2*4 == 8); //true
-console.log(2*4 == '8'); //true
-console.log(2*4 === '8'); //false
-console.log(2 + 2 * 2 != '8'); //true
-
-&& // и
-|| // или
-
-const isChecked = true,
-      isClose = true;
-
-console.log(isChecked && isClose); // true
-console.log(isChecked || isClose); // true
-console.log(!isChecked || !isClose); // false
-
-
-
+console.log(personalMovieDB);
